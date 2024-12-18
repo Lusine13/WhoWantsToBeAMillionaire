@@ -1,0 +1,113 @@
+.questions_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.question {
+    width: 80%;
+    border: 2px solid white;
+    background: linear-gradient(#100241, black);
+    border-radius: 10px;
+    font-size: 22px;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; 
+}
+
+.answer {
+    width: 40%;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;    
+    border: 1px solid white;
+    border-radius: 15px;
+    background: linear-gradient(#0e0124, #22074d);
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+.answer:hover, .answer.active {
+    background: mediumblue;
+    transform: scale(1.05);
+}
+
+.answer.correct {
+    animation: correct 3s ease forwards;
+}
+@keyframes correct {
+    0%, 22%, 42% {
+        background: mediumblue;
+    }
+    20%, 60% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    62%,100% {
+        background: #4eb04e;
+    }
+}
+
+.answer.wrong {
+    animation: wrong 3s ease forwards;
+}
+
+@keyframes wrong {
+    0%, 22%, 42% {
+        background: mediumblue;
+    }
+    20%, 60% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    62%, 100% {
+        background: #781f30; 
+    }
+}
+.helpers {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0e0124;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+  
+  button:hover {
+    background-color: #22074d;
+  }
+  
+@media (max-width: 768px) {
+    .question {
+        font-size: 18px;
+    }
+    .answer {
+        width: 80%; 
+        font-size: 18px; 
+    }
+}
+
+
+
