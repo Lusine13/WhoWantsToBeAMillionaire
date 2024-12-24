@@ -6,6 +6,7 @@ import { regexpValidation, ROUTE_CONSTANTS, FIRESTORE_PATH_NAMES } from '../../c
 import { setDoc, doc } from 'firebase/firestore';
 import AuthWrapper from '../../components/sheared/AuthWrapper';
 import { Link, useNavigate } from "react-router-dom";
+import registerBanner from '../../Images/register.jpg';
 
 
 
@@ -33,7 +34,7 @@ const Register = () => {
     }
 
 return (
-  <AuthWrapper title="Sign up">
+  <AuthWrapper title="Sign up" banner={registerBanner}>
         <Form layout="vertical" form={form} onFinish={handleRegister}>
             <Form.Item
             label="First Name"

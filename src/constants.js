@@ -1,21 +1,3 @@
-const generateFibonacci = (n) => {
-  const fib = [];
-  for (let i = 0; i < n; i++) {
-      if (i === 0) {
-          fib.push(1000); 
-      } else if (i === 1) {
-          fib.push(2000); 
-      } else {
-          fib.push(fib[i - 1] + fib[i - 2]); 
-      }
-  }
-  return fib;
-    
-  
-};
-
-export const EarningMoney = generateFibonacci(15).map(amount => `$ ${amount}`);
-
 export const questionAnswers = [
   {
       id: 1,
@@ -337,4 +319,22 @@ CABINET: '/cabinet'
 }
 export const FIRESTORE_PATH_NAMES = {
   REGISTERED_USERS: 'registered_users'
-}
+};
+
+const generateFibonacci = (n) => {
+    const fib = [];
+    for (let i = 0; i < n; i++) {
+        if (i === 0) {
+            fib.push(1000); 
+        } else if (i === 1) {
+            fib.push(2000); 
+        } else {
+            fib.push(fib[i - 1] + fib[i - 2]); 
+        }
+    }
+    return fib;
+      
+    
+  };
+  
+  export const EarningMoney = generateFibonacci(15).map(amount => `$ ${amount}`);

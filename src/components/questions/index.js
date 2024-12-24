@@ -2,31 +2,18 @@ import { useEffect, useState } from 'react';
 import { questionAnswers } from '../../constants';
 import './index.css';
 
-const Questions = ({ setStop, fiftyFiftyUsed, setFiftyFiftyUsed, callFriendUsed, setCallFriendUsed }) => {
-    const [questionNumber, setQuestionNumber] = useState(0); 
+const Questions = ({ questionNumber, setQuestionNumber, setStop, setFiftyFiftyUsed,  setCallFriendUsed, fiftyFiftyUsed, callFriendUsed }) => {
     const [question, setQuestion] = useState(null);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [answerClass, setAnswerClass] = useState("answer");
     const [isAnswering, setIsAnswering] = useState(false);  
-       
-
-    useEffect(() => {        
-        const savedState = JSON.parse(sessionStorage.getItem('gameState'));
-        if (savedState) {
-            setQuestionNumber(savedState.questionNumber);
-            setFiftyFiftyUsed(savedState.fiftyFiftyUsed);
-            setCallFriendUsed(savedState.callFriendUsed);
-        }
-    }, [setQuestionNumber, setFiftyFiftyUsed, setCallFriendUsed]);
 
     useEffect(() => {
-        if (questionAnswers[questionNumber]) {
-            setQuestion(questionAnswers[questionNumber]);
-        }
+        setQuestion(questionAnswers[questionNumber]);
     }, [questionNumber]);
 
     const handleClick = (answer) => {
-        if (isAnswering) return; 
+        if (isAnswering);  
         setIsAnswering(true); 
         setSelectedAnswer(answer);       
         setAnswerClass("answer active");
@@ -34,7 +21,7 @@ const Questions = ({ setStop, fiftyFiftyUsed, setFiftyFiftyUsed, callFriendUsed,
         setTimeout(() => {
             setAnswerClass(answer.correct ? "answer correct" : "answer wrong");
         }, 1000);
-
+      
         setTimeout(() => {
             if (answer.correct) {
                 setQuestionNumber((prev) => prev + 1); 
@@ -43,7 +30,6 @@ const Questions = ({ setStop, fiftyFiftyUsed, setFiftyFiftyUsed, callFriendUsed,
             }
         }, 3000); 
     };
-
     const handleFiftyFifty = () => {
         if (!fiftyFiftyUsed && question) {
             const incorrectAnswers = question.answers.filter((answer) => !answer.correct);
@@ -64,16 +50,6 @@ const Questions = ({ setStop, fiftyFiftyUsed, setFiftyFiftyUsed, callFriendUsed,
             setCallFriendUsed(true);  
         }
     };
-
-    useEffect(() => {        
-        const gameState = {
-            questionNumber,
-            fiftyFiftyUsed,
-            callFriendUsed
-        };
-        sessionStorage.setItem('gameState', JSON.stringify(gameState));
-    }, [questionNumber, fiftyFiftyUsed, callFriendUsed]);
-
     return (
         <div className="questions_container">
             <div className="question">{question?.question}</div>

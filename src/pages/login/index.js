@@ -7,6 +7,7 @@ import AuthWrapper from '../../components/sheared/AuthWrapper';
 import { useDispatch } from 'react-redux';
 import { fetchUserProfileInfo } from '../../state-managment/slices/userProfile';
 import { regexpValidation, ROUTE_CONSTANTS } from '../../constants';
+import loginBanner from '../../Images/login.jpg';
 
 
 
@@ -35,7 +36,7 @@ const Login = () => {
 
 
   return (
-    <AuthWrapper title="Sign in">
+    <AuthWrapper title="Sign in" banner={loginBanner}>
       <Form layout="vertical" form={form} onFinish={handleLogin}>
         <Form.Item 
         label="Email"

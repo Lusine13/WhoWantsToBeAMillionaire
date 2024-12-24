@@ -1,14 +1,45 @@
-import Cabinet from "../../../pages/cabinet";
-//import './index.css';
+import { useState } from 'react';
+import Questions from '../../../components/questions';
+import Timer from '../../../components/timer';
+import Money from '../../../components/money';
+import { questionAnswers } from '../../../constants';
 
-const MainLayout = () => {
+import './index.css';
+
+const Cabinet = () => {
+    const [ questionNumber, setQuestionNumber ] = useState(0)
+    const [ stop, setStop ] = useState(false);
+    const [ fiftyFiftyUsed, setFiftyFiftyUsed ] = useState(false); 
+    const [ callFriendUsed, setCallFriendUsed ] = useState(false);
+    const [ earned, setEarned ] = useState(0);
+   
+   
+ 
     return (
-        <div className="main_layaut_container">
-                    
-            <Cabinet />
-          
+        <div className="main_container">
+            <Timer 
+            stop={stop}
+            setStop ={setStop} 
+            questionNumber={questionNumber} />
+
+            <Questions 
+            questionNumber={questionNumber}
+            setQuestionNumber={setQuestionNumber}
+            questionAnswers={questionAnswers}
+            setStop={setStop}
+            fiftyFiftyUsed={fiftyFiftyUsed}
+            callFriendUsed={callFriendUsed}
+            setFiftyFiftyUsed={setFiftyFiftyUsed}
+            setCallFriendUsed={setCallFriendUsed}
+            />   
+            <Money 
+            questionNumber={questionNumber} 
+            earned={earned} 
+            setEarned={setEarned} 
+            /> 
+                   
         </div>
-    )
+    );
 };
 
-export default MainLayout;
+export default Cabinet;

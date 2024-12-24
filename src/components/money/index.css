@@ -13,6 +13,7 @@
     right: 0;                   
     top: 0;                 
     color: white;
+    z-index: -1000;
 }
 .moneyList {    
     width: 90%;    
@@ -37,7 +38,8 @@
 .moneyListItem.active {
     background-color: #00ffcc;      
     color: #fff;                     
-    font-weight: bold;               
+    font-weight: bold;     
+    background: linear-gradient(#b1b1b2, black);          
 }
 .number {
     font-size: 18px;
@@ -54,6 +56,7 @@
     font-weight: bold;
     color: #fff; 
     padding-left: 20px;  
+    padding-top: 20px;
 }
 
 @media (max-width: 768px) {
