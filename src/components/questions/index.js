@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { questionAnswers } from '../../constants';
+
 import './index.css';
 
 const Questions = ({ questionNumber, setQuestionNumber, setStop, setFiftyFiftyUsed,  setCallFriendUsed, fiftyFiftyUsed, callFriendUsed }) => {
@@ -7,6 +8,7 @@ const Questions = ({ questionNumber, setQuestionNumber, setStop, setFiftyFiftyUs
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [answerClass, setAnswerClass] = useState("answer");
     const [isAnswering, setIsAnswering] = useState(false);  
+      
 
     useEffect(() => {
         setQuestion(questionAnswers[questionNumber]);
@@ -26,7 +28,7 @@ const Questions = ({ questionNumber, setQuestionNumber, setStop, setFiftyFiftyUs
             if (answer.correct) {
                 setQuestionNumber((prev) => prev + 1); 
             } else {
-                setStop(true); 
+                setStop(true);               
             }
         }, 3000); 
     };
@@ -52,6 +54,7 @@ const Questions = ({ questionNumber, setQuestionNumber, setStop, setFiftyFiftyUs
     };
     return (
         <div className="questions_container">
+            
             <div className="question">{question?.question}</div>
             <div className="answers">
                 {question?.answers.map((answer) => (
@@ -67,7 +70,7 @@ const Questions = ({ questionNumber, setQuestionNumber, setStop, setFiftyFiftyUs
             <div className="helpers">
                 <button onClick={handleFiftyFifty} disabled={fiftyFiftyUsed}>50/50</button>
                 <button onClick={handleCallFriend} disabled={callFriendUsed}>Call a Friend</button>
-            </div>
+                </div>           
         </div>
     );
 };

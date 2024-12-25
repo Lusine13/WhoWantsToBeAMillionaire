@@ -1,11 +1,9 @@
 import { Avatar, Dropdown, Typography, Flex, theme } from 'antd';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../firebase';
-import { ROUTE_CONSTANTS } from '../../../constants';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setIsAuth } from '../../../state-managment/slices/userProfile';
-import Cabinet from '../../layouts/Cabinet';
+
 import './index.css';
 
 
@@ -20,8 +18,7 @@ const getFullNameLetter = ({ firstName, lastName }) => {
 }
 
 const AuthProfileDropDown = ({ userProfileInfo }) => {    
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const dispatch = useDispatch();  
     const { token } = useToken();
 
     const handleSignOut = async () => {
@@ -32,20 +29,9 @@ const AuthProfileDropDown = ({ userProfileInfo }) => {
             console.log(e, `signOut error`)
         }
     };
-    const handleRestart = ({setStop}, {setQuestionNumber}, {setCallFriendUsed}, {setFiftyFiftyUsed}, {setEarned}) => {
-        setQuestionNumber(0);  
-        setStop(false);  
-        setFiftyFiftyUsed(false);  
-        setCallFriendUsed(false); 
-        setEarned(0);
-    };
-
+    
     const items = [
-        {
-            label: 'Restart Game',
-            key: 'restart',
-            onClick: handleRestart,
-        },
+                
         {
             label: 'Logout',
             key: 'logout',

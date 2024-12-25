@@ -14,15 +14,17 @@ body {
 }
 
 .restartButton {
+    margin: auto;
     background-color:  #22074d;  
+    width: 300px;
     color: white;  
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
     font-size: 18px;
+    background: linear-gradient(#0e0124, #22074d);
+    transition: background 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
 }
 
 .restartButton:hover {

@@ -13,7 +13,14 @@ const Cabinet = () => {
     const [ callFriendUsed, setCallFriendUsed ] = useState(false);
     const [ earned, setEarned ] = useState(0);
    
-   
+    const restartGame = () => {
+        setQuestionNumber(0);  
+        setStop(false);  
+        setFiftyFiftyUsed(false);  
+        setCallFriendUsed(false); 
+        setEarned(0);
+        
+    };
  
     return (
         <div className="main_container">
@@ -37,7 +44,11 @@ const Cabinet = () => {
             earned={earned} 
             setEarned={setEarned} 
             /> 
-                   
+             {stop && (
+                <button className="restartButton" onClick={restartGame}>
+                   Վերսկսել խաղը 
+                </button>
+            )}               
         </div>
     );
 };
