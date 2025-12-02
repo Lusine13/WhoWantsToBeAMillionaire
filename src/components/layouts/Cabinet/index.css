@@ -12,7 +12,20 @@ body {
     flex-direction: column;
     box-sizing: border-box;
 }
-
+.gameEndContainer {
+    margin: auto;
+    background-color:  #22074d;  
+    width: 300px;
+    color: white;  
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center; 
+    background: linear-gradient(#0e0124, #22074d);
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
 .restartButton {
     margin: auto;
     background-color:  #22074d;  
